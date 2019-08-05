@@ -365,8 +365,9 @@ public class LiveActivityFragment extends AbstractChartFragment {
 
         // have to enable it again and again to keep it measureing
         GBApplication.deviceService().onEnableRealtimeHeartRateMeasurement(true);
-        ///
-        new MyTask().execute("1",String.valueOf(mSteps.getStepsPerMinute(false)),"0",String.valueOf(mMaxHeartRate),"0","0");
+        ///"",
+        String data = "1"+","+String.valueOf(mSteps.getStepsPerMinute(false))+","+"0"+","+String.valueOf(mMaxHeartRate)+","+"0"+","+"0";
+        new MyTask().execute(data.split(","));
         Log.i("HEARTRATE123",String.valueOf("Heart Rate : "+mMaxHeartRate + " Steps : " + mSteps.getStepsPerMinute(false) +" Calories : " + "0"));
 
     }
